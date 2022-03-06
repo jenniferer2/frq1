@@ -1,43 +1,35 @@
 public class LogMessage {
 
+    private String machineId;
+    private String description;
+
 
     // part a
     public LogMessage (String message) {
         machineId = message.substring(0, message.indexOf(":"));
-        desciption = message.substring(message.indexOf(":") + 1);
+        description = message.substring(message.indexOf(":") + 1);
 
     }
 
     // part b
     public boolean containsWord (String keyword) {
-        if (description.equals(keyword) != -1 || description.indexOf(" "+ keyword) != -1 || description.indexOf(keyword + " ") != -1 ) {
+        if (description.equals(keyword) || description.indexOf(" " + keyword) == 0 || description.contains(" " + keyword + " ")) {
             return true;
         }
+
         return false;
 
-
-
     }
 
-    // part c
-    public List <LogMessage> removeMessages (String Keyword) {
-         ArrayList <LogMessage> newList = new ArrayList <LogMessage> ();
-         for (int i = 0; i < messageList.size(); i++) {
-             if (messageList.get(i).containsWord(Keyword)) {
-                 LogMessage  w = messageList.get(i);
-                 newList.add(w);
-                 messageList.remove(i);
-                 i--;
-
-         }
-
-
-         }
-         return newList;
-
-
+    public String getMachineId () {
+        return machineId;
 
     }
+    public String getDescription() {
+        return description;
+    }
+
+
 
 
 
